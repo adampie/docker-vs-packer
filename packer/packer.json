@@ -1,0 +1,10 @@
+
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "openjdk",
+      "export_path": "image.tar"
+    }
+  ]
+}
