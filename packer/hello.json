@@ -1,0 +1,28 @@
+
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "openjdk",
+      "commit": true,
+      "changes": [
+        "WORKDIR /usr/src",
+        "CMD [\"java\", \"-jar\", \"hello.jar\"]"
+      ]
+    }
+  ],
+   "provisioners":[
+     {
+      "type": "file",
+      "source": "hello.jar",
+      "destination": "/usr/src/hello.jar"
+    }
+  ],
+  "post-processors": [
+      {
+        "type": "docker-tag",
+        "repository": "hello-packer",
+        "tag": "0.1"
+      }
+    ]
+}
